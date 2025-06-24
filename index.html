@@ -48,6 +48,8 @@
     </div>
   </div>
 
+  <!-- JS Scripts -->
+  <script src="scripts/ann-engine.js"></script>
   <script>
     const layers = [];
 
@@ -93,7 +95,9 @@
     function runForwardPass() {
       const inputStr = document.getElementById('input-vector').value;
       const input = inputStr.split(',').map(Number);
-      alert(`Simulating forward pass with input: [${input.join(', ')}]\n(This is a placeholder. ANN logic will be added in ann-engine.js)`);
+      const network = new NeuralNetwork(layers);
+      const output = network.forward(input);
+      alert(`Output: [${output.map(n => n.toFixed(2)).join(', ')}]`);
     }
   </script>
 </body>
